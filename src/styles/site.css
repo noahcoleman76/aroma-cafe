@@ -89,6 +89,93 @@
     }
   }
   
+  /* ---------------------------------------------------------
+   Valentine's promo modal
+   --------------------------------------------------------- */
+.promoOverlay{
+  position: fixed;
+  inset: 0;
+  z-index: 220;
+  background: rgba(10, 14, 12, 0.55);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+}
+
+.promoModal{
+  position: relative;
+  width: min(480px, 100%);
+  background: rgba(255,255,255,0.98);
+  border-radius: 22px;
+  border: 1px solid rgba(15, 61, 47, 0.14);
+  box-shadow: 0 26px 70px rgba(0,0,0,0.25);
+  padding: 24px 22px 22px;
+}
+
+.promoClose{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 61, 47, 0.18);
+  background: rgba(255,255,255,0.9);
+  color: var(--primary-ink);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+.promoTag{
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: rgba(34,211,159,0.12);
+  color: var(--primary-ink);
+  margin-bottom: 10px;
+}
+
+.promoTitle{
+  margin: 0 0 8px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: -0.03em;
+  color: var(--primary-ink);
+}
+
+.promoBody{
+  margin: 0 0 10px;
+  color: rgba(11,15,14,0.78);
+  line-height: 1.6;
+}
+
+.promoDetails{
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: rgba(11,15,14,0.75);
+  line-height: 1.6;
+}
+
+.promoActions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 480px){
+  .promoModal{
+    padding: 20px 18px 18px;
+  }
+}
+
   /* =========================================================
      Hero
      ========================================================= */

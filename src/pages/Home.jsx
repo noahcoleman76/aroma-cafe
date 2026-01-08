@@ -1,6 +1,6 @@
-import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { FaBagShopping, FaGift, FaPhone } from "react-icons/fa6";
+import { useMemo, useState, useEffect } from "react";
+import { FaGift, FaPhone, FaBagShopping, FaQuoteLeft } from "react-icons/fa6";
 
 
 const WHY_AROMA_CHIPS = ["Quality ingredients", "Careful preparation", "Warm hospitality"];
@@ -76,11 +76,73 @@ export default function Home({
 }) {
   const imgs = useRandomFoodImages(7);
 
+  const [showValentinesModal, setShowValentinesModal] = useState(false);
+
+  useEffect(() => {
+    try {
+      const seenFlag = window.localStorage.getItem("valentinesPromoSeen");
+      if (!seenFlag) {
+        setShowValentinesModal(true);
+        window.localStorage.setItem("valentinesPromoSeen", "true");
+      }
+    } catch {
+      // if localStorage is blocked, just show the modal once this session
+      setShowValentinesModal(true);
+    }
+  }, []);
+
   const heroImg = imgs[0];
   const whyImg = imgs[1];
 
   return (
     <>
+      {/* VALENTINE'S DAY PROMO MODAL */}
+      {showValentinesModal && (
+        <div
+          className="promoOverlay"
+          onClick={() => setShowValentinesModal(false)}
+        >
+          <div
+            className="promoModal"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="promoClose"
+              type="button"
+              onClick={() => setShowValentinesModal(false)}
+              aria-label="Close"
+            >
+              ×
+            </button>
+
+            <div className="promoTag">Special Dinner Service</div>
+            <h2 className="promoTitle">Valentine’s Day</h2>
+            <p className="promoBody">
+              Aroma Cafe is opening for dinner on Valentine's Day.
+            </p>
+
+            <p className="promoDetails">
+              <strong>Thursday, February 14</strong>
+              <br />
+              Limited seating • Call ahead to join our call-ahead list.
+            </p>
+
+            <div className="promoActions">
+              <a className="btn btnDark" href={phoneTel}>
+                <FaPhone /> Call ahead
+              </a>
+              <button
+                type="button"
+                className="btn"
+                onClick={() => setShowValentinesModal(false)}
+              >
+                Maybe later
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* HERO */}
       <section className="hero">
         <div className="container">
