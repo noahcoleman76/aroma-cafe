@@ -272,7 +272,7 @@ const menu = [
 
 const INFO = {
   phoneDisplay: "(801) 609-2290",
-  phoneTel: "tel:+8016092290",
+  phoneTel: "tel:+18016092290",
 
   giftCardUrl: "https://aromacafeutah.kulacart.net/",
   orderOnlineUrl: "https://aromacafeutah.kulacart.net/",
