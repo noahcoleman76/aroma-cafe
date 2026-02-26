@@ -97,7 +97,7 @@ export default function Home({
   return (
     <>
       {/* VALENTINE'S DAY PROMO MODAL */}
-      {showValentinesModal && (
+      {/* {showValentinesModal && (
         <div
           className="promoOverlay"
           onClick={() => setShowValentinesModal(false)}
@@ -141,7 +141,7 @@ export default function Home({
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* HERO */}
       <section className="hero">
